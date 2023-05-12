@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students List</title>
+    <link rel="stylesheet" th:href="@{'/css/bootstrap.css'}">
+</head>
+<body>
+<div class="container" th:insert="~{navbar.html}">
+</div>
+<div class="container"  style="min-height: 500px">
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NAME</td>
+                    <td>SURNAME</td>
+                    <td>EXAM</td>
+                    <td>MARK</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="s: ${students}">
+                    <td th:text="${s.id}" th:class="${s.exam >= 50?'text-primary':'text-danger'}"></td>
+                    <td th:text="${s.name}" th:class="${s.exam >= 50?'text-primary':'text-danger'}"></td>
+                    <td th:text="${s.surname}" th:class="${s.exam >= 50?'text-primary':'text-danger'}"></td>
+                    <td th:text="${s.exam}" th:class="${s.exam >= 50?'text-primary':'text-danger'}"></td>
+                    <td th:text="${s.mark}" th:class="${s.exam >= 50?'text-primary':'text-danger'}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container" th:insert="~{footer.html}">
+</div>
+</body>
+</html>
